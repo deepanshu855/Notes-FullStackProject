@@ -9,7 +9,7 @@ const path = require("path");
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(express.static("./public"));
+app.use(express.static(path.join(__dirname, "..", "public")));
 
 connectToDb();
 
@@ -62,7 +62,7 @@ app.patch("/api/notes/:id", async (req, res) => {
 
 // Wild card route to integrate frontend
 app.use("*name", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "/public/index.html"));
+  res.sendFile(path.joinpath.join(__dirname, "..", "public", "index.html"));
 });
 
 module.exports = app;
