@@ -13,6 +13,7 @@ connectToDb();
 
 // POST-> /api/notes : to create notes.
 app.post("/api/notes", async (req, res) => {
+  console.log(req.body)
   const { title, description } = req.body;
   await noteModel.create({
     title,
@@ -28,7 +29,7 @@ app.post("/api/notes", async (req, res) => {
 app.get("/api/notes", async (req, res) => {
   const notes = await noteModel.find();
   res.status(200).send({
-    msg: "Notes created successfully",
+    msg: "Notes fetched successfully",
     notes,
   });
 });

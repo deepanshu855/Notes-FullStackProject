@@ -1,0 +1,62 @@
+.note-card {
+  width: 320px;
+  padding: 20px;
+  background-color: #2d2d2d;
+  border: 1px solid #3c3c3c;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.note-card:hover {
+  transform: translateY(-4px);
+  border-color: #555;
+}
+
+.note-title {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.note-description {
+  color: #c5c5c5;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.note-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.update-btn,
+.delete-btn {
+  flex: 1;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.update-btn {
+  background-color: #0078d4;
+  color: white;
+}
+
+.update-btn:hover {
+  background-color: #106ebe;
+}
+
+.delete-btn {
+  background-color: #d13438;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #b52d30;
+}
