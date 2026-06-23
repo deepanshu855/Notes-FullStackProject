@@ -4,16 +4,18 @@ const express = require("express");
 const cors = require("cors");
 const connectToDb = require("./config/database.js");
 const noteModel = require("./model/notes.model.js");
+const path = require("path");
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(express.static("./public"));
 
 connectToDb();
 
 // POST-> /api/notes : to create notes.
 app.post("/api/notes", async (req, res) => {
-  console.log(req.body)
+  console.log(req.body);
   const { title, description } = req.body;
   await noteModel.create({
     title,
@@ -56,6 +58,11 @@ app.patch("/api/notes/:id", async (req, res) => {
     msg: "Notes updated",
     updatedNote,
   });
+});
+
+// Wild card route to integrate frontend
+app.use("*name", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "/public/index.html"));
 });
 
 module.exports = app;
